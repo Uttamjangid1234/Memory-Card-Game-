@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Memory Card Game - Advanced</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🃏 Memory Card Game</h1>
+
+  <!-- Controls -->
+  <div class="controls">
+    <label>Difficulty:
+      <select id="difficulty" onchange="startGame()">
+        <option value="4">Easy (4x4)</option>
+        <option value="6">Medium (6x6)</option>
+        <option value="8">Hard (8x8)</option>
+      </select>
+    </label>
+
+    <label>Theme:
+      <select id="theme" onchange="startGame()">
+        <option value="fruits">Fruits</option>
+        <option value="animals">Animals</option>
+        <option value="flags">Flags</option>
+      </select>
+    </label>
+
+    <label>Mode:
+      <select id="mode" onchange="startGame()">
+        <option value="normal">Normal</option>
+        <option value="timed">Timed (60s)</option>
+      </select>
+    </label>
+
+    <button onclick="confirmRestart()">Restart</button>
+    <button onclick="toggleSound()">🔊 Sound</button>
+    <button onclick="showHint()">💡 Hint</button>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <span>Moves: <span id="moves">0</span></span>
+    <span>Time: <span id="timer">0</span>s</span>
+    <span>Hints left: <span id="hints">3</span></span>
+  </div>
+
+  <!-- Game Board -->
+  <div class="game-board" id="gameBoard"></div>
+
+  <!-- Leaderboard -->
+  <h2>🏆 Top 5 Scores</h2>
+  <table id="leaderboard">
+    <thead>
+      <tr><th>Player</th><th>Moves</th><th>Time</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Audio -->
+  <audio id="flipSound" src="flip.mp3"></audio>
+  <audio id="matchSound" src="match.mp3"></audio>
+  <audio id="winSound" src="win.mp3"></audio>
+
+  <!-- Confetti -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
